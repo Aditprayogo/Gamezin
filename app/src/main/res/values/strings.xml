@@ -2,4 +2,7 @@
     <string name="app_name">Gamezin</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="game">Game</string>
+    <string name="search">Search</string>
+    <string name="favorite">Favorite</string>
 </resources>
