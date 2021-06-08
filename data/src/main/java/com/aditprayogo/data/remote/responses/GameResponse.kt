@@ -3,7 +3,7 @@ package com.aditprayogo.data.remote.responses
 
 import com.google.gson.annotations.SerializedName
 
-data class Result(
+data class GameResponse(
     @SerializedName("added")
     val added: Int?,
     @SerializedName("added_by_status")

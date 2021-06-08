@@ -21,7 +21,7 @@ data class GamesResponse(
     @SerializedName("previous")
     val previous: Any?,
     @SerializedName("results")
-    val results: List<Result>?,
+    val gameResponses: List<GameResponse>?,
     @SerializedName("seo_description")
     val seoDescription: String?,
     @SerializedName("seo_h1")
