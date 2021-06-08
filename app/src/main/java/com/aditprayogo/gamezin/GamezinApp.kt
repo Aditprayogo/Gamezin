@@ -7,5 +7,4 @@ import dagger.hilt.android.HiltAndroidApp
  * Created by Aditiya Prayogo.
  */
 @HiltAndroidApp
-class GamezinApp : Application() {
-}
+class GamezinApp : Application()

@@ -1,12 +1,17 @@
 package com.aditprayogo.core.domain.entity
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
-
 /**
  * Created by Aditiya Prayogo.
  */
-@Parcelize
 data class GameDataEntity(
-
-) : Parcelable
+    val backgroundImage: String?,
+    val clip: String?,
+    val genres: List<String>?,
+    val id: Int?,
+    val name: String?,
+    val platforms: List<String>?,
+    val playtime: Int?,
+    val rating: Double?,
+    val ratingsCount: Int?,
+    val released: String?,
+)

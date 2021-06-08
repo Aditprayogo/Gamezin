@@ -1,7 +1,18 @@
 package com.aditprayogo.core.domain.usecases
 
+import com.aditprayogo.core.domain.entity.GameDataEntity
+import com.aditprayogo.core.domain.repository.GameRepository
+import com.aditprayogo.core.utils.ResultState
+import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+
 /**
  * Created by Aditiya Prayogo.
  */
-class GameUseCaseImpl {
+class GameUseCaseImpl @Inject constructor(
+    private val gameRepository: GameRepository
+) : GameUseCase {
+
+    override suspend fun getAllGames(): Flow<ResultState<List<GameDataEntity>>> =
+        gameRepository.getAllgames()
 }
