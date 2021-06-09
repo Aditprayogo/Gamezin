@@ -6,4 +6,5 @@
     <string name="search">Search</string>
     <string name="favorite">Favorite</string>
     <string name="imggame">imgGame</string>
+    <string name="place_holder_text">Text Place Holder</string>
 </resources>

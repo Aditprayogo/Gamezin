@@ -14,6 +14,11 @@ class GameViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
     private val binding = ItemRowGameBinding.bind(itemView)
 
     fun bind(data : GameDataEntity) {
-        data.backgroundImage?.let { binding.imgGame.load(it) }
+        with(binding) {
+            data.backgroundImage?.let { binding.imgGame.load(it) }
+            txtName.text = data.name
+            rattingBar.rating = data.rating!!.toFloat()
+            txtRatting.text = data.rating.toString()
+        }
     }
 }

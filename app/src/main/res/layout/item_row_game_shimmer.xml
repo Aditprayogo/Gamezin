@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    app:cardCornerRadius="@dimen/dimens18"
+    android:elevation="@dimen/dimens8"
+    android:layout_marginStart="@dimen/dimens12"
+    android:layout_marginEnd="@dimen/dimens12"
+    android:layout_marginTop="@dimen/dimens12"
+    android:layout_marginBottom="@dimen/dimens12"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:focusable="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgGame"
+            android:layout_width="match_parent"
+            android:scaleType="centerCrop"
+            android:background="@color/colorShimmer"
+            android:contentDescription="@string/imggame"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView1"
+            app:cardCornerRadius="@dimen/dimens18"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            app:cardBackgroundColor="#7F000000"
+            android:layout_marginStart="@dimen/dimens18"
+            android:layout_marginBottom="@dimen/dimens18"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            app:cardCornerRadius="@dimen/dimens18"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            app:cardBackgroundColor="#7F000000"
+            android:layout_marginBottom="@dimen/dimens18"
+            app:layout_constraintStart_toStartOf="@+id/cardView1"
+            app:layout_constraintBottom_toTopOf="@+id/cardView1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

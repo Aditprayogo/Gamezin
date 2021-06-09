@@ -12,6 +12,7 @@
     <color name="black">#393e46</color>
     <color name="dark">#222831</color>
     <color name="colorGreen">#29a19c</color>
+    <color name="colorShimmer">#DDDDDD</color>
 
 
 </resources>

@@ -39,6 +39,16 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
         initObservers()
+        initSwipe()
+    }
+
+    private fun initSwipe() {
+        binding.apply {
+            swipeView.setOnRefreshListener {
+                gameViewModel.getAllGames()
+                swipeView.isRefreshing = false
+            }
+        }
     }
 
     private fun initRecyclerView() {
@@ -68,10 +78,14 @@ class GameFragment : Fragment() {
     }
 
     private fun handleState(it: LoaderState) {
-        if (it is LoaderState.ShowLoading) {
-            // TODO: 09/06/21
-        } else {
-            // TODO: 09/06/21
+        with(binding) {
+            if (it is LoaderState.ShowLoading) {
+                baseLoading.root.visibility = View.VISIBLE
+                rvGame.visibility = View.INVISIBLE
+            } else {
+                baseLoading.root.visibility = View.INVISIBLE
+                rvGame.visibility = View.VISIBLE
+            }
         }
     }
 

@@ -32,7 +32,7 @@ class GameViewModel @Inject constructor(
     val error: LiveData<String> get() = _error
 
     private val _networkError = MutableLiveData<Boolean>()
-    val networkError: LiveData<Boolean> = _networkError
+    val networkError: LiveData<Boolean> get()  = _networkError
 
     private val _resultGameApi = MutableLiveData<List<GameDataEntity>>()
     val resultGameApi: LiveData<List<GameDataEntity>> get() = _resultGameApi
