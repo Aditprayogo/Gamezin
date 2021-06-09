@@ -5,18 +5,14 @@
         <item name="colorPrimary">@color/dark</item>
         <item name="colorPrimaryVariant">@color/dark</item>
         <item name="colorOnPrimary">@color/dark</item>
-
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/colorSecondary</item>
-        <item name="colorSecondaryVariant">@color/colorSecondary</item>
-        <item name="colorOnSecondary">@color/colorSecondary</item>
+        <item name="colorSecondary">@color/colorGreen</item>
+        <item name="colorSecondaryVariant">@color/colorGreen</item>
+        <item name="colorOnSecondary">@color/colorGreen</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnPrimary</item>
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="NoActionBar.Dark" parent="Theme.Gamezin">
-        <item name="android:statusBarColor" tools:targetApi="l">@color/black</item>
-        <item name="android:background">@color/black</item>
-    </style>
+
 </resources>
