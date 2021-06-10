@@ -16,7 +16,6 @@ object DataMapper {
                 genres = data.genres?.map { it.name.toString() },
                 id = data.id,
                 name = data.name,
-                platforms = data.platforms?.map { it.platform.toString() },
                 playtime = data.playtime,
                 rating = data.rating,
                 ratingsCount = data.ratingsCount,

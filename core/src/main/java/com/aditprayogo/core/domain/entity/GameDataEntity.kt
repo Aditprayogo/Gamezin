@@ -9,7 +9,6 @@ data class GameDataEntity(
     val genres: List<String>?,
     val id: Int?,
     val name: String?,
-    val platforms: List<String>?,
     val playtime: Int?,
     val rating: Double?,
     val ratingsCount: Int?,
