@@ -8,8 +8,6 @@ data class GamesResponse(
     val count: Int?,
     @SerializedName("description")
     val description: String?,
-    @SerializedName("filters")
-    val filters: Filters?,
     @SerializedName("next")
     val next: String?,
     @SerializedName("nofollow")

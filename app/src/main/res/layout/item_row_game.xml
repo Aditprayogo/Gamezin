@@ -22,7 +22,7 @@
             android:id="@+id/imgGame"
             android:layout_width="match_parent"
             android:scaleType="centerCrop"
-            android:background="@drawable/card_foreground"
+            android:background="@drawable/bg_card"
             android:contentDescription="@string/imggame"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"

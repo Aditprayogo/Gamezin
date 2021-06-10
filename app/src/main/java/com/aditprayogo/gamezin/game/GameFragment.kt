@@ -1,14 +1,14 @@
 package com.aditprayogo.gamezin.game
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aditprayogo.core.domain.entity.GameDataEntity
 import com.aditprayogo.core.utils.LoaderState
+import com.aditprayogo.gamezin.R
 import com.aditprayogo.gamezin.databinding.FragmentGameBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -68,6 +68,12 @@ class GameFragment : Fragment() {
             resultGameApi.observe(viewLifecycleOwner, {
                 handleResultGameApi(it)
             })
+            error.observe(viewLifecycleOwner, {
+                Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+            })
+            networkError.observe(viewLifecycleOwner, {
+                Toast.makeText(context, "Please retry your connection", Toast.LENGTH_SHORT).show()
+            })
         }
     }
 
@@ -88,5 +94,6 @@ class GameFragment : Fragment() {
             }
         }
     }
+
 
 }
