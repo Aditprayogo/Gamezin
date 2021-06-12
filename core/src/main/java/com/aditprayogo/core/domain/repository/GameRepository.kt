@@ -9,4 +9,5 @@ import kotlinx.coroutines.flow.Flow
  */
 interface GameRepository {
     suspend fun getAllgames() : Flow<ResultState<List<GameDataEntity>>>
+    suspend fun getDetailGame(gameId : String) : Flow<ResultState<GameDataEntity>>
 }

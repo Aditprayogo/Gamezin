@@ -30,4 +30,16 @@ class GameRepositoryImpl @Inject constructor(
             }
         }.flowOn(Dispatchers.IO)
     }
+
+    override suspend fun getDetailGame(gameId: String): Flow<ResultState<GameDataEntity>> {
+        return flow {
+            try {
+                val response = remoteDataSource.getDetailGames(gameId)
+                val dataMaped = DataMapper.mapGameResponseToGameDataEntitiy(response)
+                emit(ResultState.Success(dataMaped))
+            } catch (e : Exception) {
+                emit(ResultState.Error(e.toString(), 500))
+            }
+        }
+    }
 }

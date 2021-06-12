@@ -47,5 +47,7 @@ data class GameResponse(
     @SerializedName("updated")
     val updated: String?,
     @SerializedName("user_game")
-    val userGame: Any?
+    val userGame: Any?,
+    @SerializedName("description_raw")
+    val descriptionRaw: String
 )

@@ -1,5 +1,6 @@
 package com.aditprayogo.data.remote.sources
 
+import com.aditprayogo.data.remote.responses.GameResponse
 import com.aditprayogo.data.remote.responses.GamesResponse
 
 /**
@@ -7,4 +8,5 @@ import com.aditprayogo.data.remote.responses.GamesResponse
  */
 interface RemoteDataSource {
     suspend fun getGames() : GamesResponse
+    suspend fun getDetailGames(gameId : String) : GameResponse
 }

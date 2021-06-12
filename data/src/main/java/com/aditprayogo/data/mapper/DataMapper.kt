@@ -8,7 +8,7 @@ import com.aditprayogo.data.remote.responses.GameResponse
  */
 object DataMapper {
 
-    fun mapResponseToDomainEntitiy(gameResponse : List<GameResponse>) : List<GameDataEntity> =
+    fun mapResponseToDomainEntitiy(gameResponse: List<GameResponse>): List<GameDataEntity> =
         gameResponse.map { data ->
             GameDataEntity(
                 backgroundImage = data.backgroundImage,
@@ -19,7 +19,22 @@ object DataMapper {
                 playtime = data.playtime,
                 rating = data.rating,
                 ratingsCount = data.ratingsCount,
-                released = data.released
+                released = data.released,
+                information = data.descriptionRaw
             )
         }
+
+    fun mapGameResponseToGameDataEntitiy(data: GameResponse): GameDataEntity =
+        GameDataEntity(
+            backgroundImage = data.backgroundImage,
+            clip = data.clip.toString(),
+            genres = data.genres?.map { it.name.toString() },
+            id = data.id,
+            name = data.name,
+            playtime = data.playtime,
+            rating = data.rating,
+            ratingsCount = data.ratingsCount,
+            released = data.released,
+            information = data.descriptionRaw
+        )
 }

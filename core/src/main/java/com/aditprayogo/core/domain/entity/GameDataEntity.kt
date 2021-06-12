@@ -13,4 +13,5 @@ data class GameDataEntity(
     val rating: Double?,
     val ratingsCount: Int?,
     val released: String?,
+    val information : String?
 )
