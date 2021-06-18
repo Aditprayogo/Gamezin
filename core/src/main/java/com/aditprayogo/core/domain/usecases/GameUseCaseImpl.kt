@@ -18,4 +18,7 @@ class GameUseCaseImpl @Inject constructor(
 
     override suspend fun getDetailGame(gameId: String): Flow<ResultState<GameDataEntity>> =
         gameRepository.getDetailGame(gameId)
+
+    override suspend fun searchGames(search: String): Flow<ResultState<List<GameDataEntity>>> =
+        gameRepository.searchGames(search)
 }

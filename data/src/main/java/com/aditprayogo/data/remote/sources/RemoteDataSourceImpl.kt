@@ -2,6 +2,7 @@ package com.aditprayogo.data.remote.sources
 
 import com.aditprayogo.data.remote.network.GameSerivce
 import com.aditprayogo.data.remote.responses.GameResponse
+import com.aditprayogo.data.remote.responses.GamesResponse
 import javax.inject.Inject
 
 /**
@@ -12,7 +13,9 @@ class RemoteDataSourceImpl @Inject constructor(
 ) : RemoteDataSource {
     override suspend fun getGames() = gameSerivce.getAllGames()
 
-    override suspend fun getDetailGames(gameId: String): GameResponse {
-        return gameSerivce.getDetailGameById(gameId)
-    }
+    override suspend fun getDetailGames(gameId: String): GameResponse =
+        gameSerivce.getDetailGameById(gameId)
+
+    override suspend fun searchGames(search: String): GamesResponse =
+        gameSerivce.searchGames(search)
 }

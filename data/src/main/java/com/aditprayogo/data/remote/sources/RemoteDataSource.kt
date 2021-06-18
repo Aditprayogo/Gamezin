@@ -9,4 +9,5 @@ import com.aditprayogo.data.remote.responses.GamesResponse
 interface RemoteDataSource {
     suspend fun getGames() : GamesResponse
     suspend fun getDetailGames(gameId : String) : GameResponse
+    suspend fun searchGames(search: String) : GamesResponse
 }

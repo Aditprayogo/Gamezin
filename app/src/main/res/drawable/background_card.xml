@@ -4,8 +4,7 @@
     tools:ignore="MissingDefaultResource">
 
     <gradient
-        android:angle="45"
-        android:centerColor="@color/colorGreen"
-        android:endColor="@color/dark"
-        android:startColor="@color/dark" />
+        android:angle="-90"
+        android:endColor="#00D1ff"
+        android:startColor="#00bf58" />
 </shape>

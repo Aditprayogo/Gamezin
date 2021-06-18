@@ -10,4 +10,5 @@ import kotlinx.coroutines.flow.Flow
 interface GameUseCase {
     suspend fun getAllGames() : Flow<ResultState<List<GameDataEntity>>>
     suspend fun getDetailGame(gameId : String) : Flow<ResultState<GameDataEntity>>
+    suspend fun searchGames(search : String) : Flow<ResultState<List<GameDataEntity>>>
 }
