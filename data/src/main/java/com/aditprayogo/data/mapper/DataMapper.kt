@@ -1,6 +1,6 @@
 package com.aditprayogo.data.mapper
 
-import com.aditprayogo.core.domain.entity.GameDataEntity
+import com.aditprayogo.core.domain.entity.GameData
 import com.aditprayogo.data.remote.responses.GameResponse
 
 /**
@@ -8,9 +8,12 @@ import com.aditprayogo.data.remote.responses.GameResponse
  */
 object DataMapper {
 
-    fun mapResponseToDomainEntitiy(gameResponse: List<GameResponse>): List<GameDataEntity> =
+    /**
+     * Response -> Domain model
+     */
+    fun mapResponseToDomainEntitiy(gameResponse: List<GameResponse>): List<GameData> =
         gameResponse.map { data ->
-            GameDataEntity(
+            GameData(
                 backgroundImage = data.backgroundImage,
                 clip = data.clip.toString(),
                 genres = data.genres?.map { it.name.toString() },
@@ -24,8 +27,11 @@ object DataMapper {
             )
         }
 
-    fun mapGameResponseToGameDataEntitiy(data: GameResponse): GameDataEntity =
-        GameDataEntity(
+    /**
+     * Response -> Domain model
+     */
+    fun mapGameResponseToGameDataEntitiy(data: GameResponse): GameData =
+        GameData(
             backgroundImage = data.backgroundImage,
             clip = data.clip.toString(),
             genres = data.genres?.map { it.name.toString() },

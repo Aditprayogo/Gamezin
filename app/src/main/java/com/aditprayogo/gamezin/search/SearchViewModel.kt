@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.aditprayogo.core.domain.entity.GameDataEntity
+import com.aditprayogo.core.domain.entity.GameData
 import com.aditprayogo.core.domain.usecases.GameUseCase
 import com.aditprayogo.core.utils.LoaderState
 import com.aditprayogo.core.utils.ResultState
@@ -34,8 +34,8 @@ class SearchViewModel @Inject constructor(
     private val _networkError = MutableLiveData<Boolean>()
     val networkError: LiveData<Boolean> get() = _networkError
 
-    private val _resultGameApi = MutableLiveData<List<GameDataEntity>>()
-    val resultGameApi: LiveData<List<GameDataEntity>> get() = _resultGameApi
+    private val _resultGameApi = MutableLiveData<List<GameData>>()
+    val resultGameApi: LiveData<List<GameData>> get() = _resultGameApi
 
     override fun searchGames(search: String) {
         _state.value = LoaderState.ShowLoading

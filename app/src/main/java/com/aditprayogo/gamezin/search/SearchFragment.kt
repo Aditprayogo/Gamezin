@@ -8,7 +8,7 @@ import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.aditprayogo.core.domain.entity.GameDataEntity
+import com.aditprayogo.core.domain.entity.GameData
 import com.aditprayogo.core.utils.LoaderState
 import com.aditprayogo.core.utils.setGone
 import com.aditprayogo.core.utils.setVisible
@@ -27,7 +27,7 @@ class SearchFragment : Fragment() {
 
     private val searchViewModel by viewModels<SearchViewModel>()
 
-    private val gameDataEntity = mutableListOf<GameDataEntity>()
+    private val gameDataEntity = mutableListOf<GameData>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -84,7 +84,7 @@ class SearchFragment : Fragment() {
         }
     }
 
-    private fun handleResultGameApi(it: List<GameDataEntity>) {
+    private fun handleResultGameApi(it: List<GameData>) {
         gameDataEntity.clear()
         gameDataEntity.addAll(it)
         gameAdapter.setData(gameDataEntity)

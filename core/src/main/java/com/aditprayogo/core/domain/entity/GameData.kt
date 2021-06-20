@@ -3,7 +3,7 @@ package com.aditprayogo.core.domain.entity
 /**
  * Created by Aditiya Prayogo.
  */
-data class GameDataEntity(
+data class GameData(
     val backgroundImage: String?,
     val clip: String?,
     val genres: List<String>?,

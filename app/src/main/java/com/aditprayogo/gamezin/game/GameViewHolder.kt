@@ -2,14 +2,11 @@ package com.aditprayogo.gamezin.game
 
 import android.content.Intent
 import android.view.View
-import androidx.appcompat.content.res.AppCompatResources.getColorStateList
 import androidx.recyclerview.widget.RecyclerView
-import com.aditprayogo.core.domain.entity.GameDataEntity
+import com.aditprayogo.core.domain.entity.GameData
 import com.aditprayogo.core.utils.load
-import com.aditprayogo.gamezin.R
 import com.aditprayogo.gamezin.databinding.ItemRowGameBinding
 import com.aditprayogo.gamezin.game_detail.GameDetailActivity
-import com.google.android.material.chip.Chip
 
 /**
  * Created by Aditiya Prayogo.
@@ -18,7 +15,7 @@ class GameViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private val binding = ItemRowGameBinding.bind(itemView)
 
-    fun bind(data: GameDataEntity) {
+    fun bind(data: GameData) {
         with(itemView) {
             with(binding) {
                 data.backgroundImage?.let { binding.imgGame.load(it) }

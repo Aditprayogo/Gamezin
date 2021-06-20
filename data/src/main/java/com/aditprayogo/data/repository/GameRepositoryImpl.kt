@@ -1,6 +1,6 @@
 package com.aditprayogo.data.repository
 
-import com.aditprayogo.core.domain.entity.GameDataEntity
+import com.aditprayogo.core.domain.entity.GameData
 import com.aditprayogo.core.domain.repository.GameRepository
 import com.aditprayogo.core.utils.ResultState
 import com.aditprayogo.data.mapper.DataMapper
@@ -18,7 +18,7 @@ class GameRepositoryImpl @Inject constructor(
     private val remoteDataSource: RemoteDataSource
 ) : GameRepository {
 
-    override suspend fun getAllgames(): Flow<ResultState<List<GameDataEntity>>> {
+    override suspend fun getAllgames(): Flow<ResultState<List<GameData>>> {
         return flow {
             try {
                 val response = remoteDataSource.getGames()
@@ -31,7 +31,7 @@ class GameRepositoryImpl @Inject constructor(
         }.flowOn(Dispatchers.IO)
     }
 
-    override suspend fun getDetailGame(gameId: String): Flow<ResultState<GameDataEntity>> {
+    override suspend fun getDetailGame(gameId: String): Flow<ResultState<GameData>> {
         return flow {
             try {
                 val response = remoteDataSource.getDetailGames(gameId)
@@ -43,7 +43,7 @@ class GameRepositoryImpl @Inject constructor(
         }.flowOn(Dispatchers.IO)
     }
 
-    override suspend fun searchGames(search: String): Flow<ResultState<List<GameDataEntity>>> =
+    override suspend fun searchGames(search: String): Flow<ResultState<List<GameData>>> =
         flow {
             try {
                 val response = remoteDataSource.searchGames(search)

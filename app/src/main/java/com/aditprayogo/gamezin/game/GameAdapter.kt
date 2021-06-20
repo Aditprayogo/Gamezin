@@ -3,7 +3,7 @@ package com.aditprayogo.gamezin.game
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.aditprayogo.core.domain.entity.GameDataEntity
+import com.aditprayogo.core.domain.entity.GameData
 import com.aditprayogo.gamezin.R
 
 /**
@@ -11,9 +11,9 @@ import com.aditprayogo.gamezin.R
  */
 class GameAdapter : RecyclerView.Adapter<GameViewHolder>() {
 
-    private var games = mutableListOf<GameDataEntity>()
+    private var games = mutableListOf<GameData>()
 
-    fun setData(data : MutableList<GameDataEntity>) {
+    fun setData(data : MutableList<GameData>) {
         this.games = data
         notifyDataSetChanged()
     }

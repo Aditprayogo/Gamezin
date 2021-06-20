@@ -2,11 +2,9 @@ package com.aditprayogo.gamezin.game_detail
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.aditprayogo.core.domain.entity.GameDataEntity
+import com.aditprayogo.core.domain.entity.GameData
 import com.aditprayogo.core.utils.load
 import com.aditprayogo.gamezin.R
 import com.aditprayogo.gamezin.databinding.ActivityGameDetailBinding
@@ -22,7 +20,7 @@ class GameDetailActivity : AppCompatActivity() {
 
     private val gameDetailViewModel by viewModels<GameDetailViewModel>()
 
-    private var gameDataEntity: GameDataEntity? = null
+    private var gameData: GameData? = null
     private var gameId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,8 +50,8 @@ class GameDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun handleResultDetailGameFromApi(data: GameDataEntity?) {
-        this.gameDataEntity = data
+    private fun handleResultDetailGameFromApi(data: GameData?) {
+        this.gameData = data
         with(binding) {
             data?.let {
                 imgGame.load(it.backgroundImage)
@@ -70,7 +68,6 @@ class GameDetailActivity : AppCompatActivity() {
                         addView(chip)
                     }
                 }
-
             }
 
         }

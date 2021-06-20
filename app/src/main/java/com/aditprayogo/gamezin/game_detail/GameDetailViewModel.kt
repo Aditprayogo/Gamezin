@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.aditprayogo.core.domain.entity.GameDataEntity
+import com.aditprayogo.core.domain.entity.GameData
 import com.aditprayogo.core.domain.usecases.GameUseCase
 import com.aditprayogo.core.utils.LoaderState
 import com.aditprayogo.core.utils.ResultState
@@ -34,8 +34,8 @@ class GameDetailViewModel @Inject constructor(
     private val _networkError = MutableLiveData<Boolean>()
     val networkError: LiveData<Boolean> get() = _networkError
 
-    private val _resultDetailGameFromApi = MutableLiveData<GameDataEntity>()
-    val resultDetailGameFromApi: LiveData<GameDataEntity> get() = _resultDetailGameFromApi
+    private val _resultDetailGameFromApi = MutableLiveData<GameData>()
+    val resultDetailGameFromApi: LiveData<GameData> get() = _resultDetailGameFromApi
 
     override fun getDetailGame(gameId: String) {
         _state.value = LoaderState.ShowLoading

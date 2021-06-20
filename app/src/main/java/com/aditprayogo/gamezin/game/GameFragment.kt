@@ -6,9 +6,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.aditprayogo.core.domain.entity.GameDataEntity
+import com.aditprayogo.core.domain.entity.GameData
 import com.aditprayogo.core.utils.LoaderState
-import com.aditprayogo.gamezin.R
 import com.aditprayogo.gamezin.databinding.FragmentGameBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,7 +22,7 @@ class GameFragment : Fragment() {
         GameAdapter()
     }
 
-    private var gameDataEntity = mutableListOf<GameDataEntity>()
+    private var gameDataEntity = mutableListOf<GameData>()
 
     private val gameViewModel by viewModels<GameViewModel>()
 
@@ -77,7 +76,7 @@ class GameFragment : Fragment() {
         }
     }
 
-    private fun handleResultGameApi(data: List<GameDataEntity>) {
+    private fun handleResultGameApi(data: List<GameData>) {
         gameDataEntity.clear()
         gameDataEntity.addAll(data)
         gameAdapter.setData(gameDataEntity)
