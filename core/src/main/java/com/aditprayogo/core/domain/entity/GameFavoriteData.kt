@@ -5,13 +5,11 @@ package com.aditprayogo.core.domain.entity
  */
 data class GameFavoriteData(
     val backgroundImage: String?,
-    val clip: String?,
-    val genres: List<String>?,
-    val id: Int?,
+    val id: Int,
     val name: String?,
     val playtime: Int?,
     val rating: Double?,
     val ratingsCount: Int?,
     val released: String?,
-    val information : String?
+    val information: String?
 )

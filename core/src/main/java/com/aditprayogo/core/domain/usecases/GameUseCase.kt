@@ -1,6 +1,7 @@
 package com.aditprayogo.core.domain.usecases
 
 import com.aditprayogo.core.domain.entity.GameData
+import com.aditprayogo.core.domain.entity.GameFavoriteData
 import com.aditprayogo.core.utils.ResultState
 import kotlinx.coroutines.flow.Flow
 
@@ -9,6 +10,11 @@ import kotlinx.coroutines.flow.Flow
  */
 interface GameUseCase {
     suspend fun getAllGames() : Flow<ResultState<List<GameData>>>
-    suspend fun getDetailGame(gameId : String) : Flow<ResultState<GameData>>
+    suspend fun getDetailGame(gameId : Int) : Flow<ResultState<GameData>>
     suspend fun searchGames(search : String) : Flow<ResultState<List<GameData>>>
+
+    fun getAllGamesFromDb() : Flow<List<GameFavoriteData>>
+    fun getGamesById(id : Int) : Flow<List<GameFavoriteData>>
+    suspend fun insertGameToDb(game : GameFavoriteData)
+    suspend fun deleteGameFromDb(game : GameFavoriteData)
 }

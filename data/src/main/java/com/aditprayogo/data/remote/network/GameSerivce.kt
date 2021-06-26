@@ -21,7 +21,7 @@ interface GameSerivce {
      *  get detail games
      */
     @GET("games/{gameId}")
-    suspend fun getDetailGameById(@Path("gameId") gameId : String) : GameResponse
+    suspend fun getDetailGameById(@Path("gameId") gameId : Int) : GameResponse
 
     /**
      * get games by name

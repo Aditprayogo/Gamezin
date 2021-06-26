@@ -30,7 +30,7 @@ class GameViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
             setOnClickListener {
                 context.startActivity(Intent(context, GameDetailActivity::class.java).apply {
-                    putExtra(GameDetailActivity.GAME_ID, data.id.toString())
+                    putExtra(GameDetailActivity.GAME_ID, data.id)
                 })
             }
         }

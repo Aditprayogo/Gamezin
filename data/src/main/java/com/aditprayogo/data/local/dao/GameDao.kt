@@ -20,19 +20,19 @@ interface GameDao {
      * SELECT game by id
      */
     @Query("SELECT * FROM game_favorite_entity WHERE id = :id")
-    fun getGameById(id : Int) : Flow<GameFavoriteEntity>
+    fun getGameById(id : Int) : Flow<List<GameFavoriteEntity>>
 
     /**
      * Insert game to db
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertGameToDb(game : GameFavoriteEntity)
+    suspend fun insertGameToDb(game : GameFavoriteEntity)
 
     /**
      * DELETE games
      */
     @Delete
-    fun deleteGameFromDb(game : GameFavoriteEntity)
+    suspend fun deleteGameFromDb(game : GameFavoriteEntity)
 
 
 

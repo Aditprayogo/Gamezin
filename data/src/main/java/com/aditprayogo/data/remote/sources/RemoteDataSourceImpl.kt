@@ -13,7 +13,7 @@ class RemoteDataSourceImpl @Inject constructor(
 ) : RemoteDataSource {
     override suspend fun getGames() = gameSerivce.getAllGames()
 
-    override suspend fun getDetailGames(gameId: String): GameResponse =
+    override suspend fun getDetailGames(gameId: Int): GameResponse =
         gameSerivce.getDetailGameById(gameId)
 
     override suspend fun searchGames(search: String): GamesResponse =

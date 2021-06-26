@@ -2,6 +2,7 @@ package com.aditprayogo.data.di
 
 import android.app.Application
 import androidx.room.Room
+import com.aditprayogo.core.utils.GAME_DB
 import com.aditprayogo.data.local.dao.GameDao
 import com.aditprayogo.data.local.db.GameDatabase
 import com.aditprayogo.data.remote.network.GameSerivce
@@ -30,7 +31,7 @@ object DataModule {
         return Room.databaseBuilder(
             app,
             GameDatabase::class.java,
-            "game_db"
+            GAME_DB
         ).build()
     }
 
