@@ -28,5 +28,7 @@ data class GameFavoriteEntity(
 
     @ColumnInfo(name = "released") val released: String?,
 
-    @ColumnInfo(name = "information") val information: String?
+    @ColumnInfo(name = "information") val information: String?,
+
+    @ColumnInfo(name = "genres") val genres: String?
 )

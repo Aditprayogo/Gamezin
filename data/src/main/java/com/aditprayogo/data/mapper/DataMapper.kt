@@ -59,7 +59,8 @@ object DataMapper {
                 rating = data.rating,
                 ratingsCount = data.ratingsCount,
                 released = data.released,
-                information = data.information
+                information = data.information,
+                genres = data.genres
             )
         }
 
@@ -76,7 +77,8 @@ object DataMapper {
                 rating = it.rating,
                 ratingsCount = it.ratingsCount,
                 released = it.released,
-                information = it.information
+                information = it.information,
+                genres = it.genres
             )
         }
 
@@ -92,7 +94,8 @@ object DataMapper {
             rating = data.rating,
             ratingsCount = data.ratingsCount,
             released = data.released,
-            information = data.information
+            information = data.information,
+            genres = data.genres
         )
 
     /**
@@ -107,6 +110,11 @@ object DataMapper {
             rating = data.rating,
             ratingsCount = data.ratingsCount,
             released = data.released,
-            information = data.information
+            information = data.information,
+            genres = data.genres!!.joinToString(
+                prefix = "",
+                separator = ", ",
+                postfix = ""
+            )
         )
 }
