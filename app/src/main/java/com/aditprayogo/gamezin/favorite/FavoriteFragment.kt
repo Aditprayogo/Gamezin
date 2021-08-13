@@ -1,17 +1,17 @@
 package com.aditprayogo.gamezin.favorite
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aditprayogo.core.domain.entity.GameFavoriteData
-import com.aditprayogo.gamezin.R
 import com.aditprayogo.gamezin.databinding.FragmentFavoriteBinding
-import com.aditprayogo.gamezin.game.GameAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class FavoriteFragment : Fragment() {
@@ -50,17 +50,10 @@ class FavoriteFragment : Fragment() {
     }
 
     private fun initObservers() {
-        with(favoriteViewModel) {
-            getAllFavoriteGames().observe(viewLifecycleOwner, {
-                handleFavoriteGame(it)
-            })
-        }
+        favoriteViewModel.getAllFavoriteGames().observe(viewLifecycleOwner, {
+            lifecycleScope.launch {
+                favoriteAdapter.submitData(it)
+            }
+        })
     }
-
-    private fun handleFavoriteGame(it: List<GameFavoriteData>) {
-        favoriteGames.clear()
-        favoriteGames.addAll(it)
-        favoriteAdapter.setFavoriteData(favoriteGames)
-    }
-
 }

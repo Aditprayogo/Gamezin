@@ -68,4 +68,10 @@ dependencies {
     // For local unit tests
     testImplementation 'com.google.dagger:hilt-android-testing:2.36'
     testAnnotationProcessor 'com.google.dagger:hilt-compiler:2.36'
+
+    //paging
+    implementation "androidx.paging:paging-runtime:$paging_version"
+
+    // alternatively - without Android dependencies for tests
+    testImplementation "androidx.paging:paging-common:$paging_version"
 }

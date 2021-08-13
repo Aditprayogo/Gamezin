@@ -1,5 +1,6 @@
 package com.aditprayogo.data.repository
 
+import androidx.paging.*
 import com.aditprayogo.core.domain.entity.GameData
 import com.aditprayogo.core.domain.entity.GameFavoriteData
 import com.aditprayogo.core.domain.repository.GameRepository
@@ -8,15 +9,14 @@ import com.aditprayogo.data.local.sources.LocalDataSource
 import com.aditprayogo.data.mapper.DataMapper
 import com.aditprayogo.data.remote.sources.RemoteDataSource
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 /**
  * Created by Aditiya Prayogo.
  */
+@ExperimentalCoroutinesApi
 class GameRepositoryImpl @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource
@@ -65,9 +65,13 @@ class GameRepositoryImpl @Inject constructor(
     /**
      * local
      */
-    override fun getAllGamesFromDb(): Flow<List<GameFavoriteData>> =
-        localDataSource.getAllGamesFromDb().map {
-            DataMapper.mapGameListEntityToDomainGameListEntitiy(it)
+    override fun getAllGamesFromDb(): Flow<PagingData<GameFavoriteData>> =
+        Pager(config = PagingConfig(pageSize = 10)) {
+            localDataSource.getAllGamesFromDb()
+        }.flow.mapLatest {
+            it.map { gameFavoriteEntity ->
+                DataMapper.mapGameEntityToDomainGameEntity(gameFavoriteEntity)
+            }
         }
 
     override fun getGamesById(id: Int): Flow<List<GameFavoriteData>> =

@@ -2,20 +2,33 @@ package com.aditprayogo.gamezin.favorite
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import com.aditprayogo.core.domain.entity.GameFavoriteData
 import com.aditprayogo.gamezin.R
 
 /**
  * Created by Aditiya Prayogo.
  */
-class FavoriteAdapter : RecyclerView.Adapter<FavoriteViewHolder>() {
+class FavoriteAdapter : PagingDataAdapter<GameFavoriteData, FavoriteViewHolder>(DIFF_CALLBACK) {
 
-    private var favoriteGames = mutableListOf<GameFavoriteData>()
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<GameFavoriteData>() {
+            override fun areItemsTheSame(
+                oldItem: GameFavoriteData,
+                newItem: GameFavoriteData
+            ): Boolean {
+                return oldItem.id == newItem.id
+            }
 
-    fun setFavoriteData(data: MutableList<GameFavoriteData>) {
-        this.favoriteGames = data
-        notifyDataSetChanged()
+            override fun areContentsTheSame(
+                oldItem: GameFavoriteData,
+                newItem: GameFavoriteData
+            ): Boolean {
+                return oldItem == newItem
+            }
+
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder {
@@ -25,8 +38,7 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
-        holder.bind(favoriteGames[position])
+        val game = getItem(position)
+        game?.let { holder.bind(it) }
     }
-
-    override fun getItemCount(): Int = favoriteGames.size
 }

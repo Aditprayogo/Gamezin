@@ -1,5 +1,6 @@
 package com.aditprayogo.core.domain.usecases
 
+import androidx.paging.PagingData
 import com.aditprayogo.core.domain.entity.GameData
 import com.aditprayogo.core.domain.entity.GameFavoriteData
 import com.aditprayogo.core.domain.repository.GameRepository
@@ -23,7 +24,7 @@ class GameUseCaseImpl @Inject constructor(
     override suspend fun searchGames(search: String): Flow<ResultState<List<GameData>>> =
         gameRepository.searchGames(search)
 
-    override fun getAllGamesFromDb(): Flow<List<GameFavoriteData>> =
+    override fun getAllGamesFromDb(): Flow<PagingData<GameFavoriteData>> =
         gameRepository.getAllGamesFromDb()
 
     override fun getGamesById(id: Int): Flow<List<GameFavoriteData>> =

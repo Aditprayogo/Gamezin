@@ -49,20 +49,18 @@ object DataMapper {
     /**
      * map room entity (list) to domain entity (list)
      */
-    fun mapGameListEntityToDomainGameListEntitiy(input: List<GameFavoriteEntity>): List<GameFavoriteData> =
-        input.map { data ->
-            GameFavoriteData(
-                backgroundImage = data.backgroundImage,
-                id = data.id,
-                name = data.name,
-                playtime = data.playtime,
-                rating = data.rating,
-                ratingsCount = data.ratingsCount,
-                released = data.released,
-                information = data.information,
-                genres = data.genres
-            )
-        }
+    fun mapGameEntityToDomainGameEntity(input: GameFavoriteEntity): GameFavoriteData =
+        GameFavoriteData(
+            backgroundImage = input.backgroundImage,
+            id = input.id,
+            name = input.name,
+            playtime = input.playtime,
+            rating = input.rating,
+            ratingsCount = input.ratingsCount,
+            released = input.released,
+            information = input.information,
+            genres = input.genres
+        )
 
     /**
      * map room entity to domain entitiy
