@@ -1,6 +1,7 @@
 package com.aditprayogo.data.di
 
 import com.aditprayogo.data.local.sources.LocalDataSource
+import com.aditprayogo.data.local.sources.LocalDataSourceImpl
 import com.aditprayogo.data.remote.sources.RemoteDataSource
 import com.aditprayogo.data.remote.sources.RemoteDataSourceImpl
 import dagger.Binds
@@ -22,6 +23,6 @@ abstract class DataSourceModule {
 
     @Binds
     @Singleton
-    abstract fun provideLocalDataSource(localDataSource: LocalDataSource) : LocalDataSource
+    abstract fun provideLocalDataSource(localDataSourceImpl: LocalDataSourceImpl) : LocalDataSource
 
 }

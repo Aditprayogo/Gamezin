@@ -1,23 +1,25 @@
+
 package com.aditprayogo.gamezin.game_detail
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.aditprayogo.core.domain.entity.GameData
+import com.aditprayogo.core.domain.entity.GameFavoriteData
 import com.aditprayogo.core.domain.usecases.GameUseCase
 import com.aditprayogo.core.utils.LoaderState
 import com.aditprayogo.core.utils.ResultState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import java.lang.Exception
 import javax.inject.Inject
 
 /**
  * Created by Aditiya Prayogo.
  */
 interface GameDetailViewModelContract {
-    fun getDetailGame(gameId: String)
+    fun getDetailGame(gameId: Int)
+    fun insertGameToDb(game : GameFavoriteData)
+    fun deleteGameFromDb(game : GameFavoriteData)
 }
 
 @HiltViewModel
@@ -37,7 +39,16 @@ class GameDetailViewModel @Inject constructor(
     private val _resultDetailGameFromApi = MutableLiveData<GameData>()
     val resultDetailGameFromApi: LiveData<GameData> get() = _resultDetailGameFromApi
 
-    override fun getDetailGame(gameId: String) {
+    private val _resultInsertToDbStatus = MutableLiveData<Boolean>()
+    val resultInsertToDbStatus get() = _resultInsertToDbStatus
+
+    private val _resultDeleteFromDbStatus = MutableLiveData<Boolean>()
+    val resultDeleteFromDbStatus get() = _resultDeleteFromDbStatus
+
+    /**
+     * get detail game from api
+     */
+    override fun getDetailGame(gameId: Int) {
         _state.value = LoaderState.ShowLoading
         viewModelScope.launch {
             gameUseCase.getDetailGame(gameId).collect {
@@ -56,4 +67,31 @@ class GameDetailViewModel @Inject constructor(
             }
         }
     }
+
+    override fun insertGameToDb(game: GameFavoriteData) {
+        viewModelScope.launch {
+            try {
+                gameUseCase.insertGameToDb(game)
+                _resultInsertToDbStatus.postValue(true)
+            } catch (e : Exception) {
+                _error.postValue(e.localizedMessage)
+            }
+
+        }
+    }
+
+    override fun deleteGameFromDb(game: GameFavoriteData) {
+        viewModelScope.launch {
+            try {
+                gameUseCase.deleteGameFromDb(game)
+                _resultDeleteFromDbStatus.postValue(true)
+            } catch (e : Exception) {
+                _error.postValue(e.localizedMessage)
+            }
+
+        }
+    }
+
+    fun getDetailGameFromDb(gameId: Int) = gameUseCase.getGamesById(gameId).asLiveData()
+
 }
