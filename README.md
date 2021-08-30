@@ -9,9 +9,6 @@
 - [Support me](#How-to-support-me-?-)
 - [License](#license)
 
-<!-- - [Demo](#demo) -->
-<!-- - [Mad Scored](#mad-scoreboard) -->
-
 ## Apps Feature
 - List Games
 - Search Games.
@@ -30,21 +27,6 @@ Clean architecture is a software design philosophy that separates the elements o
 - **Domain** - Contains the business logic of the application. It is the individual and innermost module. It’s a complete java module.
 - **Data** It includes the domain layer. It would implement the interface exposed by domain layer and dispenses data to app
 - **Presentation** - A layer that interacts with the UI, mainly Android Stuff like Activities, Fragments, ViewModel, etc. It would include both domain and data layers.
-
-<!-- ## Demo -->
-
-<!-- <p align="center"> -->
-<!--     <img src="assets/mockup1.jpg" -->
-<!--         style="margin-right: 20px;" -->
-<!--     /> -->
-<!-- </p> -->
-
-<!-- <p align="center"> -->
-<!--     <img src="assets/mockup2.jpg" -->
-<!--         style="margin-right: 20px;" -->
-<!--     /> -->
-<!-- </p> -->
-
 
 ## Built With
 
@@ -75,7 +57,7 @@ Clean architecture is a software design philosophy that separates the elements o
 # License
 ```
 
-   Copyright © 2020 Aditiya Ihzar Eka Prayogo
+   Copyright © 2021 Aditiya Ihzar Eka Prayogo
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
