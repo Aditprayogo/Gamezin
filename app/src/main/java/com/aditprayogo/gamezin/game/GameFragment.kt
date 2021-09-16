@@ -22,7 +22,6 @@ class GameFragment : Fragment() {
         GameAdapter()
     }
 
-    private var gameDataEntity = mutableListOf<GameData>()
 
     private val gameViewModel by viewModels<GameViewModel>()
 
@@ -77,9 +76,7 @@ class GameFragment : Fragment() {
     }
 
     private fun handleResultGameApi(data: List<GameData>) {
-        gameDataEntity.clear()
-        gameDataEntity.addAll(data)
-        gameAdapter.submitList(gameDataEntity)
+        gameAdapter.submitList(data)
     }
 
     private fun handleState(it: LoaderState) {

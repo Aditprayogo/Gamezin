@@ -85,9 +85,7 @@ class SearchFragment : Fragment() {
     }
 
     private fun handleResultGameApi(it: List<GameData>) {
-        gameDataEntity.clear()
-        gameDataEntity.addAll(it)
-        gameAdapter.submitList(gameDataEntity)
+        gameAdapter.submitList(it)
     }
 
     private fun handleState(it: LoaderState) {
