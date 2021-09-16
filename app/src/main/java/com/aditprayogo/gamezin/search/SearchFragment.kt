@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
 
-    val binding: FragmentSearchBinding by lazy {
+    private val binding: FragmentSearchBinding by lazy {
         FragmentSearchBinding.inflate(layoutInflater)
     }
 
@@ -32,7 +32,7 @@ class SearchFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         return binding.root
     }
@@ -87,7 +87,7 @@ class SearchFragment : Fragment() {
     private fun handleResultGameApi(it: List<GameData>) {
         gameDataEntity.clear()
         gameDataEntity.addAll(it)
-        gameAdapter.setData(gameDataEntity)
+        gameAdapter.submitList(gameDataEntity)
     }
 
     private fun handleState(it: LoaderState) {
