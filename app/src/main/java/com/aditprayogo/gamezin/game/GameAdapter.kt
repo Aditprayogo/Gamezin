@@ -2,30 +2,45 @@ package com.aditprayogo.gamezin.game
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import com.aditprayogo.core.domain.entity.GameData
-import com.aditprayogo.gamezin.R
+import com.aditprayogo.gamezin.databinding.ItemRowGameBinding
 
 /**
  * Created by Aditiya Prayogo.
  */
-class GameAdapter : RecyclerView.Adapter<GameViewHolder>() {
-
-    private var games = mutableListOf<GameData>()
-
-    fun setData(data : MutableList<GameData>) {
-        this.games = data
-        notifyDataSetChanged()
-    }
+class GameAdapter : ListAdapter<GameData, GameViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_row_game, parent, false)
-        return GameViewHolder(view)
+        return GameViewHolder(
+            ItemRowGameBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: GameViewHolder, position: Int) {
-        holder.bind(games[position])
+        holder.bind(getItem(position))
     }
 
-    override fun getItemCount(): Int = games.size
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<GameData>() {
+            override fun areItemsTheSame(
+                oldItem: GameData,
+                newItem: GameData
+            ): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(
+                oldItem: GameData,
+                newItem: GameData
+            ): Boolean {
+                return oldItem == newItem
+            }
+        }
+    }
 }
