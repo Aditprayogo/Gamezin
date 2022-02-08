@@ -22,14 +22,13 @@ class GameFragment : Fragment() {
         GameAdapter()
     }
 
-    private var gameDataEntity = mutableListOf<GameData>()
 
     private val gameViewModel by viewModels<GameViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         return binding.root
     }
@@ -77,9 +76,7 @@ class GameFragment : Fragment() {
     }
 
     private fun handleResultGameApi(data: List<GameData>) {
-        gameDataEntity.clear()
-        gameDataEntity.addAll(data)
-        gameAdapter.setData(gameDataEntity)
+        gameAdapter.submitList(data)
     }
 
     private fun handleState(it: LoaderState) {
