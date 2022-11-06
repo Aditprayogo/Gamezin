@@ -9,4 +9,5 @@
     <string name="place_holder_text">Text Place Holder</string>
     <string name="information">Description :</string>
     <string name="favoritetoggle">favoriteToggle</string>
+    <string name="text_network_error">Please retry your connection</string>
 </resources>

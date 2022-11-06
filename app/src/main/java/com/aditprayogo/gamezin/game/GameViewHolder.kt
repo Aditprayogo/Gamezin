@@ -1,7 +1,6 @@
 package com.aditprayogo.gamezin.game
 
 import android.content.Intent
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.aditprayogo.core.domain.entity.GameData
 import com.aditprayogo.core.utils.load
@@ -11,9 +10,8 @@ import com.aditprayogo.gamezin.game_detail.GameDetailActivity
 /**
  * Created by Aditiya Prayogo.
  */
-class GameViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-    private val binding = ItemRowGameBinding.bind(itemView)
+class GameViewHolder(private val binding: ItemRowGameBinding) :
+    RecyclerView.ViewHolder(binding.root) {
 
     fun bind(data: GameData) {
         with(itemView) {

@@ -87,29 +87,29 @@ class GameDetailActivity : AppCompatActivity() {
 
     private fun initObservers() {
         with(gameDetailViewModel) {
-            state.observe(this@GameDetailActivity, {
+            state.observe(this@GameDetailActivity) {
                 handleLoadingState(it)
-            })
-            resultDetailGameFromApi.observe(this@GameDetailActivity, {
-                handleResultDetailGameFromApi(it)
-            })
-            gameId?.let {
-                getDetailGameFromDb(it).observe(this@GameDetailActivity, { data ->
-                    handleResultDetailFromDb(data)
-                })
             }
-            resultInsertToDbStatus.observe(this@GameDetailActivity, { status ->
+            resultDetailGameFromApi.observe(this@GameDetailActivity) {
+                handleResultDetailGameFromApi(it)
+            }
+            gameId?.let {
+                getDetailGameFromDb(it).observe(this@GameDetailActivity) { data ->
+                    handleResultDetailFromDb(data)
+                }
+            }
+            resultInsertToDbStatus.observe(this@GameDetailActivity) { status ->
                 if (status) {
                     gameId?.let { gameDetailViewModel.getDetailGameFromDb(it) }
                     toast(this@GameDetailActivity, "Game has been added")
                 }
-            })
-            resultDeleteFromDbStatus.observe(this@GameDetailActivity, { status ->
+            }
+            resultDeleteFromDbStatus.observe(this@GameDetailActivity) { status ->
                 if (status) {
                     gameId?.let { gameDetailViewModel.getDetailGameFromDb(it) }
                     toast(this@GameDetailActivity, "Game has been deleted")
                 }
-            })
+            }
 
 
         }

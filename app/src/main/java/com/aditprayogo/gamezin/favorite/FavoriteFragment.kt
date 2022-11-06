@@ -50,10 +50,10 @@ class FavoriteFragment : Fragment() {
     }
 
     private fun initObservers() {
-        favoriteViewModel.getAllFavoriteGames().observe(viewLifecycleOwner, {
+        favoriteViewModel.getAllFavoriteGames().observe(viewLifecycleOwner) {
             lifecycleScope.launch {
                 favoriteAdapter.submitData(it)
             }
-        })
+        }
     }
 }

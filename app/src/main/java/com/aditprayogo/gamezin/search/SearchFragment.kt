@@ -32,7 +32,7 @@ class SearchFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         return binding.root
     }
@@ -75,19 +75,17 @@ class SearchFragment : Fragment() {
 
     private fun initObservers() {
         with(searchViewModel) {
-            state.observe(viewLifecycleOwner, {
+            state.observe(viewLifecycleOwner) {
                 handleState(it)
-            })
-            resultGameApi.observe(viewLifecycleOwner, {
+            }
+            resultGameApi.observe(viewLifecycleOwner) {
                 handleResultGameApi(it)
-            })
+            }
         }
     }
 
     private fun handleResultGameApi(it: List<GameData>) {
-        gameDataEntity.clear()
-        gameDataEntity.addAll(it)
-        gameAdapter.setData(gameDataEntity)
+        gameAdapter.submitList(it)
     }
 
     private fun handleState(it: LoaderState) {

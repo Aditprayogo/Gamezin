@@ -8,28 +8,27 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aditprayogo.core.domain.entity.GameData
 import com.aditprayogo.core.utils.LoaderState
+import com.aditprayogo.gamezin.R
 import com.aditprayogo.gamezin.databinding.FragmentGameBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class GameFragment : Fragment() {
 
-    private val binding : FragmentGameBinding by lazy {
+    private val binding: FragmentGameBinding by lazy {
         FragmentGameBinding.inflate(layoutInflater)
     }
 
-    private val gameAdapter : GameAdapter by lazy {
+    private val gameAdapter: GameAdapter by lazy {
         GameAdapter()
     }
-
-    private var gameDataEntity = mutableListOf<GameData>()
 
     private val gameViewModel by viewModels<GameViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         return binding.root
     }
@@ -61,25 +60,23 @@ class GameFragment : Fragment() {
 
     private fun initObservers() {
         with(gameViewModel) {
-            state.observe(viewLifecycleOwner, {
+            state.observe(viewLifecycleOwner) {
                 handleState(it)
-            })
-            resultGameApi.observe(viewLifecycleOwner, {
+            }
+            resultGameApi.observe(viewLifecycleOwner) {
                 handleResultGameApi(it)
-            })
-            error.observe(viewLifecycleOwner, {
+            }
+            error.observe(viewLifecycleOwner) {
                 Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
-            })
-            networkError.observe(viewLifecycleOwner, {
-                Toast.makeText(context, "Please retry your connection", Toast.LENGTH_SHORT).show()
-            })
+            }
+            networkError.observe(viewLifecycleOwner) {
+                Toast.makeText(context, getString(R.string.text_network_error), Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
     private fun handleResultGameApi(data: List<GameData>) {
-        gameDataEntity.clear()
-        gameDataEntity.addAll(data)
-        gameAdapter.setData(gameDataEntity)
+        gameAdapter.submitList(data)
     }
 
     private fun handleState(it: LoaderState) {

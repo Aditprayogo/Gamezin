@@ -22,7 +22,7 @@ object RetrofitConfig {
             .build()
     }
 
-    fun okHttpClient() : OkHttpClient {
+    private fun okHttpClient() : OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor { chain ->
                 var original = chain.request()
