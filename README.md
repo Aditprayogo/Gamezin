@@ -14,6 +14,11 @@
 - Search Games.
 - Add Favorite Game
 
+## Demo 
+|Home Screen|Detail Screen|Detail Screen|
+|--|--|--|
+|![](assets/home.jpg?raw=true)|![](assets/detail.jpg?raw=true)|![](assets/detail2.jpg?raw=true)|
+
 ## Clean Architecture
 <p align="center">
     <img src="assets/cleean.png"
