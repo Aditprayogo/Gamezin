@@ -17,7 +17,7 @@
 ## Demo 
 |Home Screen|Detail Screen|Detail Screen|
 |--|--|--|
-|![](assets/home.jpg?raw=true)|![](assets/detail.jpg?raw=true)|![](assets/detail2.jpg?raw=true)|
+|![](assets/home.png?raw=true)|![](assets/detail.png?raw=true)|![](assets/detail2.png?raw=true)|
 
 ## Clean Architecture
 <p align="center">
