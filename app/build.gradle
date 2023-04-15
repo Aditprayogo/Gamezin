@@ -38,6 +38,11 @@ android {
     buildFeatures {
         viewBinding true
     }
+    testOptions {
+        // Used for Unit testing Android dependent elements in /test folder
+        unitTests.includeAndroidResources  = true
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -52,6 +57,9 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
+    testImplementation 'org.robolectric:robolectric:4.4'
+
     //navigation bar menu
     implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.6'
+    implementation 'androidx.test:runner:1.5.2'
 }

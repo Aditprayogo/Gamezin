@@ -3,11 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/aditi/AndroidStudioProjects/My Github Project/Gamezin/app/src/main/res/drawable/background_card.xml" value="0.257" />
+        <entry key="..\:/Users/aditi/AndroidStudioProjects/My Github Project/Gamezin/app/src/main/res/drawable/ic_blue_search.xml" value="0.24" />
+        <entry key="..\:/Users/aditi/AndroidStudioProjects/My Github Project/Gamezin/app/src/main/res/layout/activity_game_detail.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/aditi/AndroidStudioProjects/My Github Project/Gamezin/app/src/main/res/layout/activity_main.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/aditi/AndroidStudioProjects/My Github Project/Gamezin/app/src/main/res/layout/base_item_shimmer.xml" value="0.35052083333333334" />
+        <entry key="..\:/Users/aditi/AndroidStudioProjects/My Github Project/Gamezin/app/src/main/res/layout/fragment_game.xml" value="0.35052083333333334" />
+        <entry key="..\:/Users/aditi/AndroidStudioProjects/My Github Project/Gamezin/app/src/main/res/layout/fragment_search.xml" value="0.35052083333333334" />
+        <entry key="..\:/Users/aditi/AndroidStudioProjects/My Github Project/Gamezin/app/src/main/res/layout/item_row_game.xml" value="0.35052083333333334" />
+        <entry key="..\:/Users/aditi/AndroidStudioProjects/My Github Project/Gamezin/app/src/main/res/layout/item_row_game_shimmer.xml" value="0.35052083333333334" />
+        <entry key="..\:/Users/aditi/AndroidStudioProjects/My Github Project/Gamezin/app/src/main/res/menu/bottom_menu.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.34322916666666664" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

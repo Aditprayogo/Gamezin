@@ -165,7 +165,7 @@ class GameDetailActivity : AppCompatActivity() {
         }
     }
 
-    fun toast(context: Context, message: String) {
+    private fun toast(context: Context, message: String) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 

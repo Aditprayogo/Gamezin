@@ -21,6 +21,14 @@ buildscript {
     ext.paging_version = "3.0.1"
     ext.nav_version = "2.4.0-alpha01"
 
+    ext.junitVersion = '4.13.1'
+    ext.junitExtversion = '1.1.2'
+    ext.espressoVersion = '3.3.0'
+    ext.mockitoKotlinVersion = '2.2.0'
+    ext.mockitoVersion = '4.4.0'
+    ext.truthVersion = '1.1.2'
+    ext.androidCoreTestVersion = '2.1.0'
+
     ext.hilt_version = "2.36"
     repositories {
         google()
