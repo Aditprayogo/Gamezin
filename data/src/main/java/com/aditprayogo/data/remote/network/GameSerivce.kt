@@ -9,7 +9,7 @@ import retrofit2.http.Query
 /**
  * Created by Aditiya Prayogo.
  */
-interface GameSerivce {
+interface GameService {
 
     /**
      * get all games

@@ -57,12 +57,6 @@ internal class GameViewModelTest {
         gameViewModel.resultGameApi.observeForever(listResultGameApi)
     }
 
-    @After
-    fun tearDown() {
-        Dispatchers.resetMain() // reset main dispatcher to the original Main dispatcher
-        testDispatcher.cleanupTestCoroutines()
-    }
-
     @Test
     fun `get game and return success`() = runTest {
 
