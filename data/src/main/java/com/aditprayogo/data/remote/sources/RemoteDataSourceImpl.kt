@@ -1,6 +1,6 @@
 package com.aditprayogo.data.remote.sources
 
-import com.aditprayogo.data.remote.network.GameSerivce
+import com.aditprayogo.data.remote.network.GameService
 import com.aditprayogo.data.remote.responses.GameResponse
 import com.aditprayogo.data.remote.responses.GamesResponse
 import javax.inject.Inject
@@ -9,7 +9,7 @@ import javax.inject.Inject
  * Created by Aditiya Prayogo.
  */
 class RemoteDataSourceImpl @Inject constructor(
-    private val gameSerivce: GameSerivce
+    private val gameSerivce: GameService
 ) : RemoteDataSource {
     override suspend fun getGames() = gameSerivce.getAllGames()
 
